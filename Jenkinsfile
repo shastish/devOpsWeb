@@ -5,12 +5,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                // Use the custom build method from the shared library
-                build job: 'example-job',
-                      parameters: [
-                          string(name: 'PARAM1', value: 'value1'),
-                          booleanParam(name: 'PARAM2', value: true)
-                      ]
+                // Ensure that 'example-job' exists and can be triggered
+                build job: 'example-job'
             }
         }
     }
